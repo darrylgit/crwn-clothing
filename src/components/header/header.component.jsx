@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
 
 import { auth } from '../../firebase/firebase.utils';
 
@@ -32,4 +33,8 @@ const header = ({ currentUser }) => (
   </div>
 );
 
-export default header;
+const mapStateToProps = ({ currentUser }) => ({
+  currentUser
+});
+
+export default connect(mapStateToProps)(header);
