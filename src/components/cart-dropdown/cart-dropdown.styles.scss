@@ -22,3 +22,14 @@
     margin-top: auto;
   }
 }
+
+.cart-items::-webkit-scrollbar {
+  width: 12px;
+}
+/* Handle */
+.cart-items::-webkit-scrollbar-thumb {
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  background: rgba(80, 80, 80, 1);
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5);
+}
