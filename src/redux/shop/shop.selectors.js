@@ -1,4 +1,4 @@
-import { createSelector } from "reselect";
+import { createSelector } from 'reselect';
 
 const COLLECTION_ID_MAP = {
   hats: 1,
@@ -16,8 +16,7 @@ export const selectShopCollections = createSelector(
 );
 
 export const selectCollection = collectionUrlParam =>
-  createSelector([selectShopCollections], collections =>
-    collections.find(
-      collection => collection.id === COLLECTION_ID_MAP[collectionUrlParam]
-    )
+  createSelector(
+    [selectShopCollections],
+    collections => collections[collectionUrlParam]
   );
