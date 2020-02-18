@@ -30,9 +30,7 @@ export const OptionsContainer = styled.div`
 `;
 
 export const OptionLink = styled(Link)`
-  ${optionContainerStyles}
-`;
-
-export const OptionDiv = styled.div`
-  ${optionContainerStyles}
+  padding: 10px 15px;
+  text-transform: uppercase;
+  cursor: pointer;
 `;
