@@ -12,6 +12,7 @@ import SignInSignUpPage from './pages/sign-in-sign-up/sign-in-sign-up.component'
 import CheckoutPage from './pages/checkout/checkout.component';
 
 import { selectCurrentUser } from './redux/user/user.selector';
+import { checkUserSession } from './redux/user/user.actions';
 
 class App extends React.Component {
   constructor() {
@@ -20,6 +21,11 @@ class App extends React.Component {
     this.state = {
       currentUser: null
     };
+  }
+
+  componentDidMount() {
+    const { checkUserSession } = this.props;
+    checkUserSession();
   }
 
   componentWillUnmount() {
@@ -55,4 +61,4 @@ const mapStateToProps = createStructuredSelector({
   currentUser: selectCurrentUser
 });
 
-export default connect(mapStateToProps)(App);
+export default connect(mapStateToProps, { checkUserSession })(App);

@@ -21,3 +21,7 @@ export const emailSignInStart = (email, password) => ({
     password
   }
 });
+
+export const checkUserSession = () => ({
+  type: userActionTypes.CHECK_USER_SESSION
+});
