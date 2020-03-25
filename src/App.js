@@ -7,6 +7,7 @@ import { GlobalStyle } from './global.styles';
 
 import Header from './components/header/header.component';
 import Spinner from './components/spinner/spinner.component';
+import ErrorBoundary from './components/error-boundary/error-boundary.component';
 
 import { selectCurrentUser } from './redux/user/user.selector';
 import { checkUserSession } from './redux/user/user.actions';
@@ -42,23 +43,25 @@ class App extends React.Component {
         <GlobalStyle />
         <Header />
         <Switch>
-          <Suspense fallback={<Spinner />}>
-            <Route exact path="/" component={HomePage} />
+          <ErrorBoundary>
+            <Suspense fallback={<Spinner />}>
+              <Route exact path="/" component={HomePage} />
 
-            <Route path="/shop" component={ShopPage} />
-            <Route exact path="/checkout" component={CheckoutPage} />
-            <Route
-              exact
-              path="/signin"
-              render={() =>
-                this.props.currentUser ? (
-                  <Redirect to="/" />
-                ) : (
-                  <SignInSignUpPage />
-                )
-              }
-            />
-          </Suspense>
+              <Route path="/shop" component={ShopPage} />
+              <Route exact path="/checkout" component={CheckoutPage} />
+              <Route
+                exact
+                path="/signin"
+                render={() =>
+                  this.props.currentUser ? (
+                    <Redirect to="/" />
+                  ) : (
+                    <SignInSignUpPage />
+                  )
+                }
+              />
+            </Suspense>
+          </ErrorBoundary>
         </Switch>
       </>
     );
