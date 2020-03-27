@@ -13,7 +13,6 @@ import {
   CartDropdownButton,
   EmptyMessage
 } from './cart-dropdown.styles';
-//import './cart-dropdown.styles.scss';
 
 const CartDropdown = ({ cartItems, history, dispatch }) => (
   <CartDropdownContainer id="cartDropdown">
